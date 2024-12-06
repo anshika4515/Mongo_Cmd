@@ -1,0 +1,8 @@
+//insert in collection
+-> db.clg_id.insertOne({name:"Anshika",id:1})
+
+//insertMany in collection
+-> db.clg_id.insertMany([
+...     { name: "Akshika", id: 2 },
+...     { name: "Alisha", id: 3 }
+... ]);

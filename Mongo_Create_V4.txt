@@ -1,0 +1,32 @@
+//How to start on command prompt?
+-> mongosh
+
+//Show all data bases?
+-> show dbs
+
+//Make or Use new DataBase?
+-> use school (name of database)
+
+//Create document within this DB?
+-> db.createCollection("students")
+
+//to clear command prompt
+-> Ctrl+L
+
+//to see the current database?
+-> db
+
+//show collections within db?
+-> show collections
+
+//rename collection within db?
+-> db.students.renameCollection("student")
+
+//to see various commands in mongosh
+-> db.help()
+
+//to delete any collection
+-> db.student.drop()
+
+//to delete database
+-> db.dropDatabase()
