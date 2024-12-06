@@ -1,0 +1,8 @@
+//delete the data in collection
+-> db.new_db.deleteOne({"_id" : ObjectId("6752d6c817ae1ea965964035")})
+
+//both commands delete all the full document
+->db.new_db.deleteMany({ages:24})
+
+//delete the whole data
+->db.new_db.deleteOne({})

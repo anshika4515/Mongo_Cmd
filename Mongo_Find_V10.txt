@@ -1,0 +1,5 @@
+//give all records
+-> db.students.find({})
+
+//find only one according to value
+-> db.students.findOne({name:"AnshikaVerma"})

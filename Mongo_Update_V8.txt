@@ -1,0 +1,52 @@
+  //update any one Object in collection
+-> db.students.updateOne({name:"Anshika"},{$set:{name:"AnshikaVerma"}});
+
+//update any one object in collection using ObjectID
+-> db.students.updateMany({ age: 7 }, { $set: { name: "AnshikaVerma" } });
+
+$unset -> removes the field from document
+$rename -> renames the field
+$inc -> increments the field value
+$mul -> multiples the field value
+$currentDate -> sets the field value to the current date
+
+
+Suppose, if we have array how to update there?
+{skills:["HTML","Python","Javacript"]}
+$push -> Adds an element to an array
+$pop -> removes the first or last element of an array
+$pull -> removes all elements from an array tht match the query
+$addToSet -> Adds distinct elements to an array
+
+//using $inc
+-> db.students.updateMany( { age: 7 }, { $inc: { age: 1 } } );
+
+//using $rename
+-> db.new_db.updateMany({name:"Anshika"},{$rename:{"age":"ages"}})
+
+//using $currentDate
+-> db.new_db.updateMany({},{$currentDate:{"lastModified":true}})
+
+//using min & max
+-> db.new_db.updateOne({},{$max:{ages:24}})
+
+//adding in array
+//using $push
+-> db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$push:{"skills":"laravel"}});
+
+//uisng $addToSet
+-> db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$addToSet:{"skills":"laravel"}});
+
+//using $pop
+-> db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$pop:{"skills":1}}); //from back
+->  db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$pop:{"skills":-1}}); //from front
+
+//using pull -> can delete from anywhere with in the array
+-> db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$pull:{"skills":"c"}});
+
+//using $pullAll ->can delete multiple value from array
+-> db.new_db.updateOne({_id :ObjectId("6752d6c817ae1ea965964035"),},{$pullAll:{"skills":["c","java"]}});
+
+
+//using replaceOne
+-> db.new_db.replaceOne({ _id : ObjectId("6752d25917ae1ea965964033")},{name:"Shalini" , age:20});
