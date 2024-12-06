@@ -3,3 +3,26 @@
 
 //find only one according to value
 -> db.students.findOne({name:"AnshikaVerma"})
+
+//to show only required field using projection
+->  db.students.find({name: "AnshikaVerma"}).projection({name: 1 , age:1})
+
+//count the number of documents within the collection
+-> db.students.find().count()
+
+//normal sort
+-> db.students.find().sort({})
+
+//sort in descending by giving fields
+-> db.students.find().sort({"age":-1})
+
+//sort in ascending by giving fields
+-> db.students.find().sort({"age":1})
+
+//adding limit to sort
+-> db.students.find().limit(2)
+                                                                                               
+
+//skip the fields
+-> db.students.find().limit(2)
+    
