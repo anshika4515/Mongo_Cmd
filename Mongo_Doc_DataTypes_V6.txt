@@ -1,0 +1,28 @@
+//adding the data in various dattypes
+db.personal.insertOne({name:"Anshika",
+         age:25,
+         married:false,
+         dob: ISODate("2000-10-15T09:00:00Z"),
+         weight:72.50,
+         kids:null,
+         hobbies:["music","sports"],
+         address:{
+            "street" : "chowk bazar",
+            "city":"Dwarka"
+         }
+})
+
+
+// adding the current date
+db.personal.insertOne({name:"Anshika",
+         age:25,
+         married:false,
+         dob:new Date(),
+         weight:72.50,
+         kids:null,
+         hobbies:["music","sports"],
+         address:{
+            "street" : "chowk bazar",
+            "city":"Dwarka"
+         }
+})

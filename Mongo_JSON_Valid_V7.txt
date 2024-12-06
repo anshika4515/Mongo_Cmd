@@ -1,0 +1,60 @@
+//adding Validation in the creation of collection
+db.createCollection("students", {
+   validator:{
+      $jsonSchema : {
+        title: "Student Object Validation",
+        required : ["name","age","course"],
+        properties:{
+           name:{
+              bsonType:"string",
+              description: "must be string"
+           },
+           age:{
+              bsonType:"int",
+              minimum:5,
+              maximum:10,
+              description: "must be int"
+           },
+           course:{
+             bsonType: "string",
+             enum : ["BTECH","BSE"],
+             description:"cource required"
+           }
+        }
+      }
+   }
+});
+
+//gives error if we write something wrong
+db.students.insertOne({ name:"anshika", age:12, cource: "BTECH" })
+
+//this work correctly
+db.students.insertOne({ name:"anshika", age:7, course: "BTECH" })
+
+//if you want to change the structure of already set Validation 
+db.runCommand({
+   collMod: "students"
+   validator:{
+      $jsonSchema : {
+        title: "Student Object Validation",
+        required : ["name","age","course"],
+        properties:{
+           name:{
+              bsonType:"string",
+              description: "must be string"
+           },
+           age:{
+              bsonType:"int",
+              minimum:5,
+              maximum:10,
+              description: "must be int"
+           },
+           course:{
+             bsonType: "string",
+             enum : ["BTECH","BSE"],
+             description:"cource required"
+           }
+        }
+      }
+   }
+});
